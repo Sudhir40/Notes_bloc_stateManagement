@@ -1,7 +1,9 @@
 import '../note_model.dart';
 
 abstract class Note_State{}
-class NoteInitialState extends Note_State{}
+class NoteInitialState extends Note_State{
+
+}
 class NoteLoadingState extends Note_State{}
 class NoteLoadedState extends Note_State{
   List<Note_model> arrNotes;

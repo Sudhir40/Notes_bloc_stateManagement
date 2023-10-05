@@ -17,6 +17,10 @@ NoteBloc({required this.db}) :super (NoteInitialState()){
       emit (NoteErrorState(errormsg: 'Error'));
     }
   });
+  on<FetchNoteEvent >((event  , emit)async{
+    var mnotes = await db.fetchdata();
+    emit(NoteLoadedState(arrNotes: mnotes));
+  });
   on<deleteNoteEvent>((event,emit)async{
     emit(NoteLoadingState());
     bool check = await db.deleteNote(event.index);

@@ -8,9 +8,7 @@ class AddNote extends StatelessWidget{
   String? title;
   int ?note_id;
   String? subtitle;
-
   AddNote({this.title, this.note_id, this.subtitle});
-
  var titlecontroller = TextEditingController();
  var desccontroller = TextEditingController();
 
@@ -59,12 +57,16 @@ class AddNote extends StatelessWidget{
           if(title!=null&&subtitle!=null&&note_id!=null){
             context.read<NoteBloc>().add(updateNoteEvent(update_model: Note_model(
               title: titlecontroller.text.toString(),
-              subtitle: desccontroller.text.toString()
+              subtitle: desccontroller.text.toString(),
+              note_id: note_id,
+
             )));
           }else{
           context.read<NoteBloc>().add(AddNoteEvent(newNote: Note_model(
                       title: titlecontroller.text.toString(),
-                      subtitle: desccontroller.text.toString())));}
+                      subtitle: desccontroller.text.toString())
+          ));
+          }
         },),
     );
   }

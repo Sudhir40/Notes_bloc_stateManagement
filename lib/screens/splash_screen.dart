@@ -8,7 +8,8 @@ class splash_screen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
   Timer(Duration(seconds: 3),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Dashboard()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context)=>Dashboard()));
     });
     // TODO: implement build
     return Scaffold(

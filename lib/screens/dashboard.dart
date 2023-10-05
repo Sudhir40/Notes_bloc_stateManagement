@@ -22,12 +22,11 @@ class Dashboard extends StatelessWidget{
   var time = DateTime.now();
   var titlecontroller = TextEditingController();
   var desccontroller = TextEditingController();
- // var time = DateTime.now();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    context.read<NoteBloc>().add(FetchNoteEvent());
     return Scaffold(
-
       body:Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
